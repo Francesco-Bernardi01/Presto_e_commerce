@@ -1,0 +1,41 @@
+<x-layout>
+    <div class="container-fluid my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <h1 class="text-center f1">Sei su Presto.it</h1>
+                <p class="text-center f2 text_shadow tx-sec py-2 border-2 border-white border-bottom">Benvenuto, accedi qui:</p>
+                    <div class="row justify-content-center">
+                        <div class="col-8 col-md-8">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form class="mb-5" method='POST' action={{ route('login') }}>
+                                @csrf
+                                <div class="mb-3">
+                                    <img width="30" height="30" src="https://img.icons8.com/ios/50/new-post--v1.png"/>
+                                    <label for="exampleInputPassword1" class=" mb-3 form-label text_shadow">Email</label>
+                                    <input type="email" class="form-control shadow" id="exampleInputPassword1"
+                                        name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <img width="30" height="30"  src="https://img.icons8.com/ios/50/password--v1.png" alt=""/>
+                                    <label for="exampleInputPassword1" class="mb-3 form-label text_shadow">Password</label>
+                                    <input type="password" class="form-control shadow" id="exampleInputPassword1"
+                                        name="password">
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn btn_custom text-light shadow text_shadow">Log in</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</x-layout>
